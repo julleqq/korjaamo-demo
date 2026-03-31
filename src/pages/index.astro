@@ -1,11 +1,652 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+
+  <!-- ── NAV ─────────────────────────────────────────────────────────────── -->
+  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20 lg:h-28">
+      <a href="#" class="flex flex-col leading-none group">
+        <span class="text-amber-400 font-bold text-2xl tracking-widest uppercase">Mäkinen</span>
+        <span class="text-white/60 text-xs tracking-[0.35em] uppercase font-light mt-0.5">Autokorjaamo</span>
+      </a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#palvelut" class="text-white/70 hover:text-white text-base tracking-widest uppercase font-light transition-colors duration-200">Palvelut</a>
+        <a href="#tietoa" class="text-white/70 hover:text-white text-base tracking-widest uppercase font-light transition-colors duration-200">Tietoa</a>
+        <a href="#yhteystiedot" class="text-white/70 hover:text-white text-base tracking-widest uppercase font-light transition-colors duration-200">Yhteystiedot</a>
+        <a href="#yhteystiedot" class="border border-amber-400/60 text-amber-400 hover:bg-amber-400 hover:text-zinc-950 text-base tracking-widest uppercase px-6 py-3 transition-all duration-300 font-medium">Varaa aika</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Valikko">
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
+          <rect width="22" height="1.5" fill="currentColor"/>
+          <rect y="6" width="16" height="1.5" fill="currentColor"/>
+          <rect y="12" width="22" height="1.5" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+    <div class="h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"></div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-zinc-950/98 backdrop-blur-xl hidden flex-col items-center justify-center gap-10">
+    <a href="#palvelut" class="mobile-link text-3xl font-light tracking-widest uppercase text-white">Palvelut</a>
+    <a href="#tietoa" class="mobile-link text-3xl font-light tracking-widest uppercase text-white">Tietoa</a>
+    <a href="#yhteystiedot" class="mobile-link text-3xl font-light tracking-widest uppercase text-white">Yhteystiedot</a>
+    <a href="#yhteystiedot" class="mobile-link mt-4 border border-amber-400 text-amber-400 text-xl tracking-widest uppercase px-8 py-4 font-medium">Varaa aika</a>
+  </div>
+
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+  <section id="hero" class="relative overflow-hidden h-screen">
+
+    <!-- Frame sequence background — starts at 42% down, full width, contained -->
+    <img
+      id="hero-frame"
+      src="/assets/generated/frames/frame_0001.webp"
+      alt=""
+      class="absolute object-contain"
+      style="top: 25%; bottom: 0; left: 50%; transform: translateX(-50%); width: 75%; mask-image: radial-gradient(ellipse 70% 75% at 50% 65%, black 20%, rgba(0,0,0,0.8) 45%, transparent 72%); -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 65%, black 20%, rgba(0,0,0,0.8) 45%, transparent 72%);"
+    />
+
+    <!-- Bottom masking gradient -->
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(8,8,8,0.25) 62%, rgba(8,8,8,0.6) 78%, rgba(8,8,8,0.9) 90%, #080808 100%);"></div>
+
+    <!-- Hero content — top-aligned, clears nav -->
+    <div class="relative h-full flex flex-col items-center justify-start text-center px-6 lg:px-20 max-w-5xl mx-auto pt-36 lg:pt-44 reveal">
+
+      <!-- Soft radial gradient behind text for readability -->
+      <div class="absolute inset-x-0 top-0 h-[58%] pointer-events-none" style="background: radial-gradient(ellipse 90% 65% at 50% 28%, rgba(8,8,8,0.82) 0%, transparent 100%);"></div>
+
+      <div class="relative z-10 flex flex-col items-center">
+        <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-6 reveal">Helsinki &nbsp;·&nbsp; Perustettu 1987</p>
+        <h1 class="text-5xl md:text-7xl lg:text-[90px] font-bold text-white leading-[0.9] mb-6 reveal reveal-delay-1">
+          Mäkinen<br/>
+          <span class="text-amber-400">Auto</span>korjaamo
+        </h1>
+        <p class="text-zinc-300 text-base md:text-lg font-light max-w-md leading-relaxed mb-10 reveal reveal-delay-2">
+          Ammattimainen autohuolto yli kolmella vuosikymmenellä. Luotettavasti, tarkasti — aina aikataulussa.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 items-center reveal reveal-delay-3">
+          <a href="#yhteystiedot" class="group inline-flex items-center gap-3 bg-amber-400 text-zinc-950 font-medium text-sm tracking-widest uppercase px-8 py-4 hover:bg-amber-300 transition-all duration-[400ms] [transition-timing-function:var(--spring)]">
+            Varaa huoltoaika
+            <svg width="16" height="10" viewBox="0 0 16 10" fill="none" class="group-hover:translate-x-1 transition-transform duration-300 [transition-timing-function:var(--spring)]">
+              <path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#palvelut" class="inline-flex items-center gap-3 border border-white/20 text-white/80 hover:text-white hover:border-white/40 text-sm tracking-widest uppercase px-8 py-4 transition-all duration-300 font-light">
+            Palvelumme
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 right-8 lg:right-16 flex flex-col items-center gap-3 opacity-50">
+      <span class="text-white text-[9px] tracking-[0.4em] uppercase" style="writing-mode: vertical-rl;">Vieritä</span>
+      <div class="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
+    </div>
+
+  </section>
+
+
+  <!-- ── SERVICES ──────────────────────────────────────────────────────────── -->
+  <section id="palvelut" class="py-28 lg:py-40 px-6 lg:px-12 max-w-7xl mx-auto">
+
+    <div class="mb-16 lg:mb-20 reveal">
+      <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Mitä teemme</p>
+      <div class="flex items-end gap-8">
+        <h2 class="text-4xl md:text-6xl font-bold text-white leading-none">Palvelut</h2>
+        <div class="hidden md:block flex-1 h-px bg-white/10 mb-2"></div>
+      </div>
+    </div>
+
+    <div class="services-bento">
+
+      <!-- Featured: Moottorihuolto -->
+      <div class="bento-card bento-featured reveal-scale">
+        <div class="text-amber-400/50 mb-auto">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div>
+          <h3 class="bento-featured-title">Moottorihuolto</h3>
+          <p class="bento-featured-desc">Öljynvaihto, suodattimet, tiivisteet — kaikki moottorin tarvitsema hoito yhdessä paikassa. Käytämme vain valmistajan suosittelemia osia.</p>
+        </div>
+        <div class="absolute bottom-8 right-8 text-amber-400/20 group-hover:text-amber-400/50 transition-colors duration-300">
+          <svg width="20" height="12" viewBox="0 0 16 10" fill="none"><path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Medium A: Jarruhuolto -->
+      <div class="bento-card bento-medium reveal-scale reveal-delay-1">
+        <div class="text-amber-400/70 mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+        </div>
+        <h3 class="text-white font-semibold text-2xl mb-2">Jarruhuolto</h3>
+        <p class="text-zinc-400 text-base leading-relaxed">Jarrulevyt, palat ja nesteenvaihto. Koko jarrujärjestelmän tarkastus.</p>
+      </div>
+
+      <!-- Medium B: Renkaanvaihto -->
+      <div class="bento-card bento-medium reveal-scale reveal-delay-2">
+        <div class="text-amber-400/70 mb-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="8" width="20" height="8" rx="4"/><path d="M6 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/><circle cx="8" cy="12" r="1" fill="currentColor"/><circle cx="16" cy="12" r="1" fill="currentColor"/></svg>
+        </div>
+        <h3 class="text-white font-semibold text-2xl mb-2">Renkaanvaihto</h3>
+        <p class="text-zinc-400 text-base leading-relaxed">Kausivaihto, tasapainotus ja säilytys. Kaikki merkit ja koot.</p>
+      </div>
+
+      <!-- Small: Katsastusapu -->
+      <div class="bento-card bento-small reveal-scale reveal-delay-1">
+        <div class="text-amber-400/70 mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="text-white font-semibold text-xl mb-2">Katsastusapu</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Valmisteleva tarkastus — ei hylätä yllätyksenä.</p>
+      </div>
+
+      <!-- Small: Ilmastointi -->
+      <div class="bento-card bento-small reveal-scale reveal-delay-2">
+        <div class="text-amber-400/70 mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 3v4a1 1 0 001 1h4"/><path d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        </div>
+        <h3 class="text-white font-semibold text-xl mb-2">Ilmastointi</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Kylmäaineentäyttö, vuototarkastus ja desinfiointi.</p>
+      </div>
+
+      <!-- Small: Sähköjärjestelmät -->
+      <div class="bento-card bento-small reveal-scale reveal-delay-3">
+        <div class="text-amber-400/70 mb-4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="text-white font-semibold text-xl mb-2">Sähköjärjestelmät</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">Akkutestaus, anturit ja OBD-diagnostiikka.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ── ABOUT ─────────────────────────────────────────────────────────────── -->
+  <section id="tietoa" class="py-28 lg:py-40 bg-[#0c0c0c]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+        <!-- Images -->
+        <div class="relative reveal">
+          <div class="relative z-10 aspect-[4/5] overflow-hidden">
+            <img
+              src="/assets/generated/mechanic_portrait.png"
+              alt="Mäkisen korjaamon ammattilainen"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 [transition-timing-function:var(--ease-out)]"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+          <!-- Floating engine image -->
+          <div class="absolute -bottom-8 -right-4 lg:-right-12 w-48 lg:w-56 aspect-square overflow-hidden border-4 border-[#0c0c0c] z-20 rounded-[2rem]" style="box-shadow: var(--shadow-diffuse-hover)">
+            <img
+              src="/assets/generated/engine.png"
+              alt="Moottori"
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 [transition-timing-function:var(--ease-out)]"
+            />
+          </div>
+          <!-- Amber detail line -->
+          <div class="absolute top-8 -left-4 lg:-left-6 w-px h-40 bg-gradient-to-b from-amber-400 to-transparent"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="lg:pl-8 reveal reveal-delay-1">
+          <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-6">Meidän tarina</p>
+          <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+            Kolme sukupolvea.<br/>
+            <span class="text-zinc-500 font-light">Yksi lupaus.</span>
+          </h2>
+          <div class="space-y-5 text-zinc-300 text-lg font-light leading-relaxed">
+            <p>
+              Mäkinen Autokorjaamo perustettiin vuonna 1987, kun Paavo Mäkinen avasi tallin Kallion kaduilla. Alusta alkaen periaate on ollut sama: rehellinen työ, reilu hinta.
+            </p>
+            <p>
+              Tänään liike pyörii Paavon pojan Jukan ja tyttärentytär Lauran johdolla. Mekaanikkojemme yhteinen kokemus ylittää 80 vuotta — ja jokainen auto saa saman huomion, olipa kyse vuoden 1992 Volvo 240:stä tai tämän vuoden sähköautosta.
+            </p>
+            <p>
+              Me emme myy tarpeettomia osia. Emme ylidiagnosoi. Kerromme suoraan, mikä on vialla ja mitä se maksaa — ennen kuin ruuvi kääntyy.
+            </p>
+          </div>
+          <div class="mt-10 pt-10 border-t border-white/8 grid grid-cols-3 gap-6">
+            {[
+              { number: "37+", label: "Vuotta alalla" },
+              { number: "4200+", label: "Tyytyväistä asiakasta" },
+              { number: "98%", label: "Suosittelee" },
+            ].map((stat, i) => (
+              <div class={`reveal reveal-delay-${i + 1}`}>
+                <div class="text-3xl font-bold text-amber-400 mb-1 tabular-nums">{stat.number}</div>
+                <div class="text-zinc-600 text-xs tracking-wide uppercase">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── GALLERY ────────────────────────────────────────────────────────────── -->
+  <section class="py-28 lg:py-40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-12 reveal">
+      <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Tilat &amp; kalusto</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white">Korjaamomme</h2>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="gallery-grid">
+        <!-- Left: workshop — tall -->
+        <div class="gallery-item gallery-main reveal-scale">
+          <img src="/assets/generated/workshop.png" alt="Pääkorjaamo" />
+          <div class="gallery-overlay"></div>
+          <span class="gallery-label">Pääkorjaamo</span>
+        </div>
+        <!-- Right top: exterior -->
+        <div class="gallery-item gallery-stack-a reveal-scale reveal-delay-2">
+          <img src="/assets/generated/exterior.png" alt="Toimipiste" />
+          <div class="gallery-overlay"></div>
+          <span class="gallery-label">Toimipiste</span>
+        </div>
+        <!-- Right bottom: hero -->
+        <div class="gallery-item gallery-stack-b reveal-scale reveal-delay-3">
+          <img src="/assets/generated/hero.png" alt="Nosturipaikat" />
+          <div class="gallery-overlay"></div>
+          <span class="gallery-label">Nosturipaikat</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── CONTACT ────────────────────────────────────────────────────────────── -->
+  <section id="yhteystiedot" class="py-28 lg:py-40 bg-[#0c0c0c]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="mb-16 lg:mb-20 reveal">
+        <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Ota yhteyttä</p>
+        <div class="flex items-end gap-8">
+          <h2 class="text-4xl md:text-6xl font-bold text-white leading-none">Yhteystiedot</h2>
+          <div class="hidden md:block flex-1 h-px bg-white/10 mb-2"></div>
+        </div>
+      </div>
+
+      <div class="contact-bento mb-16">
+
+        <div class="contact-card reveal-scale">
+          <div class="text-amber-400 mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <p class="text-zinc-500 text-sm tracking-widest uppercase mb-4">Osoite</p>
+          <p class="text-white text-xl font-semibold leading-tight">Hämeentie 88</p>
+          <p class="text-white text-xl font-semibold leading-tight">00550 Helsinki</p>
+          <p class="text-zinc-600 text-xs mt-3">Kallio, 10 min Hakaniemestä</p>
+        </div>
+
+        <div class="contact-card reveal-scale reveal-delay-1">
+          <div class="text-amber-400 mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          </div>
+          <p class="text-zinc-500 text-sm tracking-widest uppercase mb-4">Aukioloajat</p>
+          <p class="text-white text-xl font-semibold leading-tight">Ma–Pe: 8.00–17.30</p>
+          <p class="text-white text-xl font-semibold leading-tight">La: 9.00–14.00</p>
+          <p class="text-zinc-600 text-xs mt-3">Sunnuntai suljettu</p>
+        </div>
+
+        <div class="contact-card reveal-scale reveal-delay-2">
+          <div class="text-amber-400 mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.17 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+          </div>
+          <p class="text-zinc-500 text-sm tracking-widest uppercase mb-4">Yhteystiedot</p>
+          <p class="text-white text-xl font-semibold leading-tight">09 756 4400</p>
+          <p class="text-white text-xl font-semibold leading-tight">info@makinenauto.fi</p>
+          <p class="text-zinc-600 text-xs mt-3">Ajanvaraus myös verkossa</p>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 justify-between border-t border-white/8 pt-12 reveal">
+        <p class="text-zinc-400 font-light max-w-sm">Varaa aika soittamalla tai täyttämällä yhteydenottolomake — vastaamme saman päivän aikana.</p>
+        <a href="tel:0975764400" class="group inline-flex items-center gap-3 bg-amber-400 text-zinc-950 font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-amber-300 transition-all duration-[400ms] [transition-timing-function:var(--spring)] whitespace-nowrap">
+          Soita nyt
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" class="group-hover:translate-x-1 transition-transform duration-300 [transition-timing-function:var(--spring)]"><path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+  <footer class="border-t border-white/5 py-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-5 h-5 bg-amber-400 flex items-center justify-center">
+          <span class="text-zinc-950 text-[7px] font-bold">M</span>
+        </div>
+        <span class="text-zinc-600 text-sm">Mäkinen Autokorjaamo · Helsinki</span>
+      </div>
+      <p class="text-zinc-700 text-xs">&copy; {new Date().getFullYear()} Mäkinen Autokorjaamo Oy · Y-tunnus 1234567-8</p>
+    </div>
+  </footer>
+
 </Layout>
+
+
+<style>
+  /* ── Services Bento ──────────────────────────────────────────────────────── */
+  .services-bento {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+
+  .bento-card {
+    background: var(--color-surface-raised);
+    border-radius: 2.5rem;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    box-shadow: var(--shadow-diffuse);
+    transition:
+      box-shadow 0.45s var(--ease-out),
+      transform 0.45s var(--spring),
+      background-color 0.3s ease;
+    will-change: transform, box-shadow;
+  }
+
+  .bento-card:hover {
+    box-shadow: var(--shadow-diffuse-hover);
+    transform: translateY(-3px);
+    background-color: #141414;
+  }
+
+  .bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(251,191,36,0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .bento-card:hover::before {
+    opacity: 1;
+  }
+
+  .bento-featured {
+    grid-column: span 4;
+    grid-row: span 2;
+    min-height: 320px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse at 15% 95%, rgba(217,119,6,0.07) 0%, transparent 55%),
+      var(--color-surface-raised);
+  }
+
+  .bento-featured:hover {
+    background:
+      radial-gradient(ellipse at 15% 95%, rgba(217,119,6,0.12) 0%, transparent 55%),
+      #141414;
+  }
+
+  .bento-featured-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .bento-featured-desc {
+    font-size: 1.1rem;
+    color: rgba(212,212,216,0.9);
+    line-height: 1.7;
+    max-width: 40ch;
+  }
+
+  .bento-medium {
+    grid-column: span 2;
+  }
+
+  .bento-small {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 900px) {
+    .services-bento {
+      grid-template-columns: 1fr 1fr;
+    }
+    .bento-featured,
+    .bento-medium,
+    .bento-small {
+      grid-column: span 2;
+      grid-row: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-bento {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .bento-featured,
+    .bento-medium,
+    .bento-small {
+      grid-column: span 1;
+    }
+  }
+
+  /* ── Gallery ─────────────────────────────────────────────────────────────── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    height: 640px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    transform: scale(1);
+    transition:
+      filter 0.7s var(--ease-out),
+      transform 0.7s var(--ease-out);
+    will-change: transform, filter;
+  }
+
+  .gallery-item:hover img {
+    filter: grayscale(0);
+    transform: scale(1.04);
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 8, 8, 0.45);
+    transition: background 0.5s ease;
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    background: rgba(8, 8, 8, 0.15);
+  }
+
+  .gallery-label {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    transition: color 0.3s ease;
+  }
+
+  .gallery-item:hover .gallery-label {
+    color: white;
+  }
+
+  .gallery-main {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    border-radius: 2.5rem;
+  }
+
+  .gallery-stack-a {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .gallery-stack-b {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  @media (max-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      height: auto;
+    }
+    .gallery-main,
+    .gallery-stack-a,
+    .gallery-stack-b {
+      grid-column: 1;
+      grid-row: auto;
+      aspect-ratio: 4/3;
+      border-radius: 1.5rem;
+    }
+  }
+
+  /* ── Contact Bento ───────────────────────────────────────────────────────── */
+  .contact-bento {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .contact-card {
+    background: var(--color-surface-raised);
+    border-radius: 2.5rem;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-diffuse);
+    transition:
+      box-shadow 0.4s var(--ease-out),
+      transform 0.4s var(--spring);
+    will-change: transform, box-shadow;
+  }
+
+  .contact-card:hover {
+    box-shadow: var(--shadow-diffuse-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .contact-bento {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+
+<script>
+  // ── NAV: hide on scroll down, show on scroll up ─────────────────────────────
+  const nav = document.getElementById('nav')!;
+  let lastScrollY = 0;
+  nav.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, backdrop-filter 0.3s ease';
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > lastScrollY && scrollY > 80) {
+      nav.style.transform = 'translateY(-100%)';
+    } else {
+      nav.style.transform = 'translateY(0)';
+    }
+    if (scrollY > 50) {
+      nav.style.background = 'rgba(8,8,8,0.92)';
+      nav.style.backdropFilter = 'blur(20px)';
+    } else {
+      nav.style.background = '';
+      nav.style.backdropFilter = '';
+    }
+    lastScrollY = scrollY;
+  }, { passive: true });
+
+  // ── MOBILE MENU ─────────────────────────────────────────────────────────────
+  const toggle = document.getElementById('menu-toggle')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    });
+  });
+
+  // ── FRAME SEQUENCE SCROLL SCRUB ─────────────────────────────────────────────
+  const heroFrame = document.getElementById('hero-frame') as HTMLImageElement;
+  const heroSection = document.getElementById('hero')!;
+  const FRAME_COUNT = 60;
+  const BASE_PATH = '/assets/generated/frames/frame_';
+
+  // Preload all frames into browser memory so swaps are instant
+  const frames: HTMLImageElement[] = [];
+  for (let i = 1; i <= FRAME_COUNT; i++) {
+    const img = new Image();
+    img.src = BASE_PATH + String(i).padStart(4, '0') + '.webp';
+    frames.push(img);
+  }
+
+  window.addEventListener('scroll', () => {
+    const progress = Math.min(window.scrollY / heroSection.offsetHeight, 1);
+    const index = Math.min(Math.floor(progress * FRAME_COUNT), FRAME_COUNT - 1);
+    heroFrame.src = frames[index].src;
+  }, { passive: true });
+
+  // ── SCROLL REVEAL ────────────────────────────────────────────────────────────
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  document.querySelectorAll('.reveal, .reveal-scale').forEach((el) => {
+    if (!el.closest('#hero')) {
+      revealObserver.observe(el);
+    }
+  });
+
+  // Hero reveals fire immediately on load
+  document.querySelectorAll('#hero .reveal, #hero .reveal-scale').forEach((el, i) => {
+    setTimeout(() => el.classList.add('is-visible'), 120 + i * 90);
+  });
+</script>

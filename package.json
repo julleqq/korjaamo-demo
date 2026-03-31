@@ -12,6 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.1.2"
+    "@fal-ai/client": "^1.9.5",
+    "@google/genai": "^1.47.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.1.2",
+    "dotenv": "^17.3.1",
+    "replicate": "^1.4.0",
+    "tailwindcss": "^4.2.2"
   }
 }

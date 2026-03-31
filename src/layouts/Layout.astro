@@ -1,23 +1,117 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import '../styles/global.css';
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Mäkinen Autokorjaamo",
+  description = "Ammattimainen autokorjaamo Helsingissä. Huolto, korjaus ja katsastusapu luotettavasti.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-bg: #080808;
+        --color-surface: #111111;
+        --color-surface-raised: #0e0e0e;
+        --color-accent: #d97706;
+        --color-accent-light: #fbbf24;
+
+        --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+        --shadow-diffuse:
+          0 0 0 1px rgba(251, 191, 36, 0.08),
+          0 20px 60px rgba(0, 0, 0, 0.55),
+          0 0 80px rgba(217, 119, 6, 0.04);
+
+        --shadow-diffuse-hover:
+          0 0 0 1px rgba(251, 191, 36, 0.22),
+          0 24px 80px rgba(0, 0, 0, 0.6),
+          0 0 100px rgba(217, 119, 6, 0.09);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        background-color: var(--color-bg);
+        color: #f5f5f5;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 400;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: 'Outfit', sans-serif;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+      }
+
+      ::-webkit-scrollbar { width: 3px; }
+      ::-webkit-scrollbar-track { background: #080808; }
+      ::-webkit-scrollbar-thumb { background: var(--color-accent); }
+      ::selection { background: var(--color-accent); color: #080808; }
+
+      /* ── Scroll reveal ─────────────────────────────────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s var(--ease-out),
+          transform 0.7s var(--ease-out);
+        will-change: opacity, transform;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-scale {
+        opacity: 0;
+        transform: scale(0.95) translateY(16px);
+        transition:
+          opacity 0.65s var(--ease-out),
+          transform 0.65s var(--ease-out);
+        will-change: opacity, transform;
+      }
+
+      .reveal-scale.is-visible {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+
+      .reveal-delay-1 { transition-delay: 0.1s; }
+      .reveal-delay-2 { transition-delay: 0.2s; }
+      .reveal-delay-3 { transition-delay: 0.3s; }
+      .reveal-delay-4 { transition-delay: 0.4s; }
+      .reveal-delay-5 { transition-delay: 0.5s; }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
