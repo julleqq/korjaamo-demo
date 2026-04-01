@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const team = [
+  { name: "Paavo Mäkinen", role: "Perustaja, 1987–2008", initials: "PM", years: "40+ vuotta kokemusta" },
+  { name: "Jukka Mäkinen", role: "Toimitusjohtaja", initials: "JM", years: "22 vuotta alalla" },
+  { name: "Laura Mäkinen", role: "Ylikorjaamon johtaja", initials: "LM", years: "12 vuotta alalla" },
+];
+
+const values = [
+  {
+    title: "Rehellisyys",
+    desc: "Kerromme suoraan, mikä on vialla ja mitä se maksaa — ennen kuin ruuvi kääntyy. Ei ylidiagnosointia, ei tarpeettomia osia.",
+    icon: `<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+  },
+  {
+    title: "Laatu",
+    desc: "Käytämme vain valmistajan suosittelemia varaosia. Jokaisella korjauksella on kirjallinen tarkastusraportti.",
+    icon: `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>`,
+  },
+  {
+    title: "Aikataulu",
+    desc: "Kun lupaamme auton valmiiksi tiistaina, se on valmis tiistaina. Yli 98 % töistä valmistuu sovitussa aikataulussa.",
+    icon: `<circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/>`,
+  },
+];
+---
+
+<Layout title="Tietoa meistä — Mäkinen Autokorjaamo" description="Mäkinen Autokorjaamo on helsinkiläinen perheyritys kolmelta sukupolvelta. Rehellinen työ, reilu hinta vuodesta 1987.">
+  <Nav />
+
+  <!-- Page hero -->
+  <div class="page-hero max-w-7xl mx-auto px-6 lg:px-12 reveal">
+    <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Meidän tarina</p>
+    <div class="flex items-end gap-8">
+      <h1 class="text-5xl md:text-7xl font-bold text-white leading-none">Tietoa meistä</h1>
+      <div class="hidden md:block flex-1 h-px bg-white/10 mb-2"></div>
+    </div>
+  </div>
+
+  <!-- Story + image -->
+  <section class="max-w-7xl mx-auto px-6 lg:px-12 pb-28 lg:pb-40">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-28">
+
+      <!-- Image -->
+      <div class="relative reveal">
+        <div class="relative z-10 aspect-[4/5] overflow-hidden">
+          <img
+            src="/assets/generated/mechanic_portrait.png"
+            alt="Mäkisen korjaamon ammattilainen"
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent pointer-events-none"></div>
+        </div>
+        <div class="absolute -bottom-8 right-2 sm:-right-4 lg:-right-12 w-32 sm:w-48 lg:w-56 aspect-square overflow-hidden border-4 border-[#080808] z-20 rounded-[2rem]">
+          <img
+            src="/assets/generated/engine.png"
+            alt="Moottori"
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+          />
+        </div>
+        <div class="absolute top-8 -left-4 lg:-left-6 w-px h-40 bg-gradient-to-b from-amber-400 to-transparent"></div>
+      </div>
+
+      <!-- Text -->
+      <div class="lg:pl-8 reveal reveal-delay-1">
+        <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+          Kolme sukupolvea.<br/>
+          <span class="text-zinc-500 font-light">Yksi lupaus.</span>
+        </h2>
+        <div class="space-y-5 text-zinc-300 text-lg font-light leading-relaxed">
+          <p>
+            Mäkinen Autokorjaamo perustettiin vuonna 1987, kun Paavo Mäkinen avasi tallin Kallion kaduilla. Alusta alkaen periaate on ollut sama: rehellinen työ, reilu hinta.
+          </p>
+          <p>
+            Tänään liike pyörii Paavon pojan Jukan ja tyttärentytär Lauran johdolla. Mekaanikkojemme yhteinen kokemus ylittää 80 vuotta — ja jokainen auto saa saman huomion, olipa kyse vuoden 1992 Volvo 240:stä tai tämän vuoden sähköautosta.
+          </p>
+          <p>
+            Me emme myy tarpeettomia osia. Emme ylidiagnosoi. Kerromme suoraan, mikä on vialla ja mitä se maksaa — ennen kuin ruuvi kääntyy.
+          </p>
+          <p>
+            Olemme kasvaneet sukupolvien luottamuksella. Asiakkaidemme lapset tuovat tänä päivänä oman autonsa meille — se kertoo kaiken.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-10 pt-10 border-t border-white/8 grid grid-cols-3 gap-6">
+          {[
+            { number: "37+", label: "Vuotta alalla" },
+            { number: "4200+", label: "Tyytyväistä asiakasta" },
+            { number: "98%", label: "Suosittelee" },
+          ].map((stat, i) => (
+            <div class={`reveal reveal-delay-${i + 1}`}>
+              <div class="text-3xl font-bold text-amber-400 mb-1 tabular-nums">{stat.number}</div>
+              <div class="text-zinc-600 text-xs tracking-wide uppercase">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div class="mb-28">
+      <div class="mb-12 reveal">
+        <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Henkilöstö</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-white">Tiimimme</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {team.map((member, i) => (
+          <div class={`card reveal-scale reveal-delay-${i + 1} flex flex-col items-start gap-5`}>
+            <div class="w-14 h-14 rounded-2xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center">
+              <span class="text-amber-400 font-bold text-lg tracking-widest">{member.initials}</span>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold text-xl mb-1">{member.name}</h3>
+              <p class="text-amber-400/80 text-sm tracking-wide uppercase font-light mb-2">{member.role}</p>
+              <p class="text-zinc-500 text-sm">{member.years}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div>
+      <div class="mb-12 reveal">
+        <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Arvomme</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-white">Miksi Mäkinen?</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {values.map((v, i) => (
+          <div class={`card reveal-scale reveal-delay-${i + 1}`}>
+            <div class="text-amber-400/60 mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" set:html={v.icon} />
+            </div>
+            <h3 class="text-white font-semibold text-2xl mb-3">{v.title}</h3>
+            <p class="text-zinc-400 text-base leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

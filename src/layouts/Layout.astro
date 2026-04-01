@@ -111,7 +111,79 @@ const {
       .reveal-delay-3 { transition-delay: 0.21s; }
       .reveal-delay-4 { transition-delay: 0.28s; }
       .reveal-delay-5 { transition-delay: 0.35s; }
+
+      /* ── Shared card styles ─────────────────────────────────────────────────── */
+      .card {
+        background: var(--color-surface-raised);
+        border-radius: 2.5rem;
+        padding: 2rem 2.5rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-diffuse);
+        transition:
+          box-shadow 0.45s var(--ease-out),
+          transform 0.45s var(--spring),
+          background-color 0.3s ease;
+        will-change: transform, box-shadow;
+      }
+
+      .card:hover {
+        box-shadow: var(--shadow-diffuse-hover);
+        transform: translateY(-3px);
+        background-color: #141414;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(251,191,36,0.7), transparent);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .card:hover::before { opacity: 1; }
+
+      /* ── Page hero (subpages) ──────────────────────────────────────────────── */
+      .page-hero {
+        padding-top: 10rem;
+        padding-bottom: 5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        margin-bottom: 5rem;
+      }
+
+      @media (min-width: 1024px) {
+        .page-hero { padding-top: 13rem; padding-bottom: 6rem; }
+      }
+
+      @media (max-width: 480px) {
+        .card {
+          padding: 1.25rem;
+          border-radius: 1.5rem;
+        }
+      }
     </style>
+
+    <script>
+      /* Shared scroll reveal for all pages */
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        );
+        document.querySelectorAll('.reveal, .reveal-scale').forEach((el) => {
+          if (!el.closest('#hero')) observer.observe(el);
+        });
+      });
+    </script>
   </head>
   <body>
     <slot />

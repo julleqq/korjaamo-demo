@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  { name: "Öljynvaihto", detail: "Henkilöauto, synteettinen öljy + suodatin", price: "alkaen 89 €", icon: "drop" },
+  { name: "Jarrupalat", detail: "Etu- tai takapalat, tarkastus mukana", price: "alkaen 149 €", icon: "circle" },
+  { name: "Jarrulevyt + palat", detail: "Koko akselisto, molemmat puolet", price: "alkaen 249 €", icon: "disc" },
+  { name: "Renkaanvaihto", detail: "Vaihto + tasapainotus, kaikki merkit", price: "alkaen 59 €", icon: "tire" },
+  { name: "Kausivaihto", detail: "Säilytys + vaihto, renkaiden pesulla", price: "alkaen 99 €", icon: "seasons" },
+  { name: "Katsastusvalmiusajo", detail: "Valmisteleva tarkastus — ei hylätä yllätyksenä", price: "alkaen 79 €", icon: "check" },
+  { name: "Ilmastoinnin täyttö", detail: "Kylmäaine, vuototarkastus, desinfiointi", price: "alkaen 69 €", icon: "wind" },
+  { name: "OBD-diagnostiikka", detail: "Vikakoodi­luku + raportti", price: "alkaen 49 €", icon: "bolt" },
+  { name: "Hammashihnan vaihto", detail: "Vaihto + kiristinrulla, tarkastusraportti", price: "alkaen 299 €", icon: "gear" },
+  { name: "Täyshuolto", detail: "Öljy, suodattimet, nesteet, tarkastus 40-kohtainen", price: "alkaen 189 €", icon: "star" },
+];
+---
+
+<Layout title="Palvelut & Hinnat — Mäkinen Autokorjaamo" description="Mäkinen Autokorjaamon palvelut ja hinnat. Öljynvaihto, jarruhuolto, renkaanvaihto ja paljon muuta.">
+  <Nav />
+
+  <!-- Page hero -->
+  <div class="page-hero max-w-7xl mx-auto px-6 lg:px-12 reveal">
+    <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Mitä teemme</p>
+    <div class="flex items-end gap-8">
+      <h1 class="text-5xl md:text-7xl font-bold text-white leading-none">Palvelut & Hinnat</h1>
+      <div class="hidden md:block flex-1 h-px bg-white/10 mb-2"></div>
+    </div>
+    <p class="text-zinc-400 text-lg font-light mt-6 max-w-xl leading-relaxed">
+      Kaikki autohuollon tarpeet yhdessä paikassa. Hinnat ovat suuntaa-antavia — pyydä tarkka tarjous puhelimitse tai sähköpostilla.
+    </p>
+  </div>
+
+  <!-- Price grid -->
+  <section class="max-w-7xl mx-auto px-6 lg:px-12 pb-28 lg:pb-40">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      {services.map((s, i) => (
+        <div class={`card reveal-scale reveal-delay-${(i % 3) + 1}`}>
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex-1">
+              <h3 class="text-white font-semibold text-xl mb-1">{s.name}</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed">{s.detail}</p>
+            </div>
+            <div class="text-amber-400 font-bold text-xl whitespace-nowrap tabular-nums">{s.price}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="mt-10 flex items-start gap-4 text-zinc-600 text-sm">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="shrink-0 mt-0.5 text-amber-400/50"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <p>Hinnat ovat suuntaa-antavia ja sisältävät ALV 25,5 %. Työn hinta vahvistetaan aina ennen toimenpiteiden aloittamista. Varaosat hinnoitellaan erikseen.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 pt-12 border-t border-white/5 flex flex-col sm:flex-row items-start sm:items-center gap-6 justify-between reveal">
+      <div>
+        <p class="text-white font-semibold text-xl mb-1">Haluatko tarjouksen?</p>
+        <p class="text-zinc-400 font-light">Kerro autosi merkki, malli ja vuosimalli — saat tarkan hinnan.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+        <a href="/varaa-aika" class="group inline-flex items-center gap-3 bg-amber-400 text-zinc-950 font-medium text-sm tracking-widest uppercase px-8 py-4 hover:bg-amber-300 transition-all duration-[400ms] [transition-timing-function:var(--spring)] whitespace-nowrap">
+          Varaa aika
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" class="group-hover:translate-x-1 transition-transform duration-300"><path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/yhteystiedot" class="inline-flex items-center gap-3 border border-white/20 text-white/80 hover:text-white hover:border-white/40 text-sm tracking-widest uppercase px-8 py-4 transition-all duration-300 font-light whitespace-nowrap">
+          Ota yhteyttä
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
