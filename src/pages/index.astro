@@ -53,14 +53,14 @@ import Layout from '../layouts/Layout.astro';
     <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(8,8,8,0.25) 62%, rgba(8,8,8,0.6) 78%, rgba(8,8,8,0.9) 90%, #080808 100%);"></div>
 
     <!-- Hero content — top-aligned, clears nav -->
-    <div class="relative h-full flex flex-col items-center justify-start text-center px-6 lg:px-20 max-w-5xl mx-auto pt-36 lg:pt-44 reveal">
+    <div class="relative h-full flex flex-col items-center justify-start text-center px-6 lg:px-20 max-w-5xl mx-auto pt-28 sm:pt-36 lg:pt-44 reveal">
 
       <!-- Soft radial gradient behind text for readability -->
       <div class="absolute inset-x-0 top-0 h-[58%] pointer-events-none" style="background: radial-gradient(ellipse 90% 65% at 50% 28%, rgba(8,8,8,0.82) 0%, transparent 100%);"></div>
 
       <div class="relative z-10 flex flex-col items-center">
         <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-6 reveal">Helsinki &nbsp;·&nbsp; Perustettu 1987</p>
-        <h1 class="text-5xl md:text-7xl lg:text-[90px] font-bold text-white leading-[0.9] mb-6 reveal reveal-delay-1">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-bold text-white leading-[0.9] mb-6 reveal reveal-delay-1">
           Mäkinen<br/>
           <span class="text-amber-400">Auto</span>korjaamo
         </h1>
@@ -186,7 +186,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent pointer-events-none"></div>
           </div>
           <!-- Floating engine image -->
-          <div class="absolute -bottom-8 -right-4 lg:-right-12 w-48 lg:w-56 aspect-square overflow-hidden border-4 border-[#0c0c0c] z-20 rounded-[2rem]" style="box-shadow: var(--shadow-diffuse-hover)">
+          <div class="absolute -bottom-8 right-2 sm:-right-4 lg:-right-12 w-32 sm:w-48 lg:w-56 aspect-square overflow-hidden border-4 border-[#0c0c0c] z-20 rounded-[2rem]" style="box-shadow: var(--shadow-diffuse-hover)">
             <img
               src="/assets/generated/engine.png"
               alt="Moottori"
@@ -446,6 +446,22 @@ import Layout from '../layouts/Layout.astro';
     .bento-medium,
     .bento-small {
       grid-column: span 1;
+    }
+    .bento-card {
+      padding: 1.5rem;
+    }
+    .bento-featured {
+      padding: 1.5rem;
+      min-height: 240px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #hero-frame {
+      width: 95% !important;
+      top: 35% !important;
+      mask-image: radial-gradient(ellipse 85% 75% at 50% 65%, black 20%, rgba(0,0,0,0.8) 50%, transparent 78%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 65%, black 20%, rgba(0,0,0,0.8) 50%, transparent 78%);
     }
   }
 
