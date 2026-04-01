@@ -46,11 +46,11 @@ import Layout from '../layouts/Layout.astro';
       src="/assets/generated/frames/frame_0001.webp"
       alt=""
       class="absolute object-contain object-bottom"
-      style="top: 25%; bottom: 0; left: 50%; transform: translateX(-50%); width: 75%; mask-image: radial-gradient(ellipse 70% 75% at 50% 65%, black 20%, rgba(0,0,0,0.8) 45%, transparent 72%); -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 65%, black 20%, rgba(0,0,0,0.8) 45%, transparent 72%);"
+      style="top: 25%; bottom: 8px; left: 50%; transform: translateX(-50%); width: 75%; mask-image: radial-gradient(ellipse 70% 75% at 50% 65%, black 20%, rgba(0,0,0,0.8) 45%, transparent 72%); -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 65%, black 20%, rgba(0,0,0,0.8) 45%, transparent 72%);"
     />
 
     <!-- Bottom masking gradient -->
-    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(8,8,8,0.25) 62%, rgba(8,8,8,0.6) 78%, rgba(8,8,8,0.9) 90%, #080808 100%);"></div>
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(8,8,8,0.25) 62%, rgba(8,8,8,0.6) 78%, rgba(8,8,8,0.92) 88%, #080808 94%, #080808 100%);"></div>
 
     <!-- Hero content — top-aligned, clears nav -->
     <div class="relative h-full flex flex-col items-center justify-start text-center px-6 lg:px-20 max-w-5xl mx-auto pt-28 sm:pt-36 lg:pt-44 reveal">
@@ -459,7 +459,7 @@ import Layout from '../layouts/Layout.astro';
   @media (max-width: 768px) {
     #hero-frame {
       width: 95% !important;
-      top: 70% !important;
+      top: 65% !important;
       mask-image: radial-gradient(ellipse 90% 90% at 50% 45%, black 40%, rgba(0,0,0,0.6) 70%, transparent 92%);
       -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 45%, black 40%, rgba(0,0,0,0.6) 70%, transparent 92%);
     }
