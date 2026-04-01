@@ -440,7 +440,7 @@ import Layout from '../layouts/Layout.astro';
   @media (max-width: 480px) {
     .services-bento {
       grid-template-columns: 1fr;
-      gap: 8px;
+      gap: 6px;
     }
     .bento-featured,
     .bento-medium,
@@ -448,11 +448,19 @@ import Layout from '../layouts/Layout.astro';
       grid-column: span 1;
     }
     .bento-card {
-      padding: 1.5rem;
+      padding: 1.25rem;
+      border-radius: 1.5rem;
     }
     .bento-featured {
-      padding: 1.5rem;
-      min-height: 240px;
+      padding: 1.25rem;
+      min-height: 200px;
+    }
+    .contact-bento {
+      gap: 6px;
+    }
+    .contact-card {
+      padding: 1.25rem;
+      border-radius: 1.5rem;
     }
   }
 
@@ -666,6 +674,6 @@ import Layout from '../layouts/Layout.astro';
 
   // Hero reveals fire immediately on load
   document.querySelectorAll('#hero .reveal, #hero .reveal-scale').forEach((el, i) => {
-    setTimeout(() => el.classList.add('is-visible'), 120 + i * 90);
+    setTimeout(() => el.classList.add('is-visible'), 60 + i * 60);
   });
 </script>
