@@ -596,7 +596,7 @@ import Layout from '../layouts/Layout.astro';
   nav.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, backdrop-filter 0.3s ease';
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    if (scrollY > lastScrollY && scrollY > 80) {
+    if (window.innerWidth < 768 && scrollY > lastScrollY && scrollY > 80) {
       nav.style.transform = 'translateY(-100%)';
     } else {
       nav.style.transform = 'translateY(0)';
