@@ -116,7 +116,7 @@ const {
       .card {
         background: var(--color-surface-raised);
         border-radius: 2.5rem;
-        padding: 2rem 2.5rem;
+        padding: 2rem 2rem;
         position: relative;
         overflow: hidden;
         box-shadow: var(--shadow-diffuse);
@@ -147,20 +147,29 @@ const {
 
       /* ── Page hero (subpages) ──────────────────────────────────────────────── */
       .page-hero {
-        padding-top: 10rem;
-        padding-bottom: 5rem;
+        padding-top: 8rem;
+        padding-bottom: 4rem;
         border-bottom: 1px solid rgba(255,255,255,0.05);
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
+      }
+
+      @media (min-width: 768px) {
+        .page-hero { padding-top: 10rem; padding-bottom: 5rem; margin-bottom: 5rem; }
       }
 
       @media (min-width: 1024px) {
-        .page-hero { padding-top: 13rem; padding-bottom: 6rem; }
+        .page-hero { padding-top: 11rem; padding-bottom: 6rem; }
       }
 
       @media (max-width: 480px) {
         .card {
           padding: 1.25rem;
           border-radius: 1.5rem;
+        }
+        .page-hero {
+          padding-top: 7rem;
+          padding-bottom: 3rem;
+          margin-bottom: 3rem;
         }
       }
     </style>
