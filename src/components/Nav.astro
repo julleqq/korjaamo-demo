@@ -3,19 +3,22 @@ const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/';
 ---
 
-<nav id="nav" class={`${isHome ? 'fixed md:absolute' : 'fixed'} top-0 left-0 right-0 z-50 transition-all duration-500`}
-  style={isHome ? '' : 'background: rgba(8,8,8,0.95); backdrop-filter: blur(20px);'}
+<nav id="nav" class={`${isHome ? 'fixed md:absolute top-0 left-0 right-0 z-50' : ''} transition-all duration-500`}
+  style={isHome ? '' : 'background: rgba(8,8,8,0.97); backdrop-filter: blur(20px);'}
 >
   <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20 lg:h-28">
-    <a href="/" class="flex flex-col leading-none group">
-      <span class="text-amber-400 font-bold text-2xl tracking-widest uppercase">Mäkinen</span>
-      <span class="text-white/60 text-xs tracking-[0.35em] uppercase font-light mt-0.5">Autokorjaamo</span>
+    <a href="/" class="flex items-center gap-3 group">
+      <img src="/assets/logo.jpg" alt="Rentoasennus logo" class="w-14 h-14 object-contain rounded-md bg-white p-1" />
+      <div class="flex flex-col leading-none">
+        <span class="text-blue-400 font-bold text-xl tracking-widest uppercase">Rentoasennus</span>
+        <span class="text-white/60 text-xs tracking-[0.35em] uppercase font-light mt-0.5">Autokorjaus</span>
+      </div>
     </a>
     <div class="hidden md:flex items-center gap-10">
-      <a href="/palvelut" class={`text-base tracking-widest uppercase font-light transition-colors duration-200 ${currentPath === '/palvelut' ? 'text-amber-400' : 'text-white/70 hover:text-white'}`}>Palvelut</a>
-      <a href="/tietoa" class={`text-base tracking-widest uppercase font-light transition-colors duration-200 ${currentPath === '/tietoa' ? 'text-amber-400' : 'text-white/70 hover:text-white'}`}>Tietoa</a>
-      <a href="/yhteystiedot" class={`text-base tracking-widest uppercase font-light transition-colors duration-200 ${currentPath === '/yhteystiedot' ? 'text-amber-400' : 'text-white/70 hover:text-white'}`}>Yhteystiedot</a>
-      <a href="/varaa-aika" class="border border-amber-400/60 text-amber-400 hover:bg-amber-400 hover:text-zinc-950 text-base tracking-widest uppercase px-6 py-3 transition-all duration-300 font-medium">Varaa aika</a>
+      <a href="/palvelut" class={`text-base tracking-widest uppercase font-light transition-colors duration-200 ${currentPath === '/palvelut' ? 'text-blue-400' : 'text-white/70 hover:text-white'}`}>Palvelut</a>
+      <a href="/tietoa" class={`text-base tracking-widest uppercase font-light transition-colors duration-200 ${currentPath === '/tietoa' ? 'text-blue-400' : 'text-white/70 hover:text-white'}`}>Tietoa</a>
+      <a href="/yhteystiedot" class={`text-base tracking-widest uppercase font-light transition-colors duration-200 ${currentPath === '/yhteystiedot' ? 'text-blue-400' : 'text-white/70 hover:text-white'}`}>Yhteystiedot</a>
+      <a href="/varaa-aika" class="border border-blue-400/60 text-blue-400 hover:bg-blue-400 hover:text-zinc-950 text-base tracking-widest uppercase px-6 py-3 transition-all duration-300 font-medium">Varaa aika</a>
     </div>
     <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Valikko">
       <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
@@ -25,7 +28,7 @@ const isHome = currentPath === '/';
       </svg>
     </button>
   </div>
-  <div class="h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"></div>
+  <div class="h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"></div>
 </nav>
 
 <!-- Mobile menu -->
@@ -33,7 +36,7 @@ const isHome = currentPath === '/';
   <a href="/palvelut" class="mobile-link text-3xl font-light tracking-widest uppercase text-white">Palvelut</a>
   <a href="/tietoa" class="mobile-link text-3xl font-light tracking-widest uppercase text-white">Tietoa</a>
   <a href="/yhteystiedot" class="mobile-link text-3xl font-light tracking-widest uppercase text-white">Yhteystiedot</a>
-  <a href="/varaa-aika" class="mobile-link mt-4 border border-amber-400 text-amber-400 text-xl tracking-widest uppercase px-8 py-4 font-medium">Varaa aika</a>
+  <a href="/varaa-aika" class="mobile-link mt-4 border border-blue-400 text-blue-400 text-xl tracking-widest uppercase px-8 py-4 font-medium">Varaa aika</a>
 </div>
 
 <script>
@@ -49,7 +52,7 @@ const isHome = currentPath === '/';
       nav.style.transform = 'translateY(0)';
     }
     if (scrollY > 50) {
-      nav.style.background = 'rgba(8,8,8,0.92)';
+      nav.style.background = 'rgba(8,8,8,0.95)';
       nav.style.backdropFilter = 'blur(20px)';
     } else {
       nav.style.background = '';

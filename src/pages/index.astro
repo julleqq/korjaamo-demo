@@ -24,24 +24,24 @@ import Footer from '../components/Footer.astro';
     <!-- Bottom masking gradient -->
     <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, transparent 0%, transparent 45%, rgba(8,8,8,0.25) 62%, rgba(8,8,8,0.6) 78%, rgba(8,8,8,0.92) 88%, #080808 94%, #080808 100%);"></div>
 
-    <!-- Hero content — top-aligned, clears nav -->
-    <div class="relative h-full flex flex-col items-center justify-start text-center px-6 lg:px-20 max-w-5xl mx-auto pt-28 sm:pt-36 lg:pt-44 reveal">
+    <!-- Hero content — top-aligned, left-aligned -->
+    <div class="relative h-full flex flex-col items-start justify-start text-left px-6 lg:px-12 max-w-5xl pt-28 sm:pt-36 lg:pt-44 reveal">
 
       <!-- Soft radial gradient behind text for readability -->
-      <div class="absolute inset-x-0 top-0 h-[58%] pointer-events-none" style="background: radial-gradient(ellipse 90% 65% at 50% 28%, rgba(8,8,8,0.82) 0%, transparent 100%);"></div>
+      <div class="absolute inset-x-0 top-0 h-[58%] pointer-events-none" style="background: radial-gradient(ellipse 90% 65% at 25% 28%, rgba(8,8,8,0.82) 0%, transparent 100%);"></div>
 
-      <div class="relative z-10 flex flex-col items-center">
-        <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-6 reveal">Helsinki &nbsp;·&nbsp; Perustettu 1987</p>
+      <div class="relative z-10 flex flex-col items-start">
+        <p class="text-blue-400 text-xs tracking-[0.4em] uppercase font-light mb-6 reveal">Akaa &nbsp;·&nbsp; Perustettu 2025</p>
         <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-[90px] font-bold text-white leading-[0.9] mb-6 reveal reveal-delay-1">
-          Mäkinen<br/>
-          <span class="text-amber-400">Auto</span>korjaamo
+          Rento<br/>
+          <span class="text-blue-400">asennus</span>
         </h1>
         <p class="text-zinc-300 text-base md:text-lg font-light max-w-md leading-relaxed mb-10 reveal reveal-delay-2">
-          Ammattimainen autohuolto yli kolmella vuosikymmenellä. Luotettavasti, tarkasti — aina aikataulussa.
+          Ammattimainen autokorjaus Akaassa. Selkeä tuntihinta, reilu meininki — ilman turhia kulisseja.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 items-center reveal reveal-delay-3">
-          <a href="#yhteystiedot" class="group inline-flex items-center gap-3 bg-amber-400 text-zinc-950 font-medium text-sm tracking-widest uppercase px-8 py-4 hover:bg-amber-300 transition-all duration-[400ms] [transition-timing-function:var(--spring)]">
+        <div class="flex flex-col sm:flex-row gap-4 items-start reveal reveal-delay-3">
+          <a href="#yhteystiedot" class="group inline-flex items-center gap-3 bg-blue-500 text-white font-medium text-sm tracking-widest uppercase px-8 py-4 hover:bg-blue-400 transition-all duration-[400ms] [transition-timing-function:var(--spring)]">
             Varaa huoltoaika
             <svg width="16" height="10" viewBox="0 0 16 10" fill="none" class="group-hover:translate-x-1 transition-transform duration-300 [transition-timing-function:var(--spring)]">
               <path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -68,7 +68,7 @@ import Footer from '../components/Footer.astro';
   <section id="palvelut" class="py-28 lg:py-40 px-6 lg:px-12 max-w-7xl mx-auto">
 
     <div class="mb-16 lg:mb-20 reveal">
-      <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Mitä teemme</p>
+      <p class="text-blue-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Mitä teemme</p>
       <div class="flex items-end gap-8">
         <h2 class="text-4xl md:text-6xl font-bold text-white leading-none">Palvelut</h2>
         <div class="hidden md:block flex-1 h-px bg-white/10 mb-2"></div>
@@ -79,21 +79,21 @@ import Footer from '../components/Footer.astro';
 
       <!-- Featured: Moottorihuolto -->
       <div class="bento-card bento-featured reveal-scale">
-        <div class="text-amber-400/50 mb-auto">
+        <div class="text-blue-400/50 mb-auto">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
         <div>
           <h3 class="bento-featured-title">Moottorihuolto</h3>
           <p class="bento-featured-desc">Öljynvaihto, suodattimet, tiivisteet — kaikki moottorin tarvitsema hoito yhdessä paikassa. Käytämme vain valmistajan suosittelemia osia.</p>
         </div>
-        <div class="absolute bottom-8 right-8 text-amber-400/20 group-hover:text-amber-400/50 transition-colors duration-300">
+        <div class="absolute bottom-8 right-8 text-blue-400/20 group-hover:text-blue-400/50 transition-colors duration-300">
           <svg width="20" height="12" viewBox="0 0 16 10" fill="none"><path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
 
       <!-- Medium A: Jarruhuolto -->
       <div class="bento-card bento-medium reveal-scale reveal-delay-1">
-        <div class="text-amber-400/70 mb-5">
+        <div class="text-blue-400/70 mb-5">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
         </div>
         <h3 class="text-white font-semibold text-2xl mb-2">Jarruhuolto</h3>
@@ -102,7 +102,7 @@ import Footer from '../components/Footer.astro';
 
       <!-- Medium B: Renkaanvaihto -->
       <div class="bento-card bento-medium reveal-scale reveal-delay-2">
-        <div class="text-amber-400/70 mb-5">
+        <div class="text-blue-400/70 mb-5">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="8" width="20" height="8" rx="4"/><path d="M6 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/><circle cx="8" cy="12" r="1" fill="currentColor"/><circle cx="16" cy="12" r="1" fill="currentColor"/></svg>
         </div>
         <h3 class="text-white font-semibold text-2xl mb-2">Renkaanvaihto</h3>
@@ -111,7 +111,7 @@ import Footer from '../components/Footer.astro';
 
       <!-- Small: Katsastusapu -->
       <div class="bento-card bento-small reveal-scale reveal-delay-1">
-        <div class="text-amber-400/70 mb-4">
+        <div class="text-blue-400/70 mb-4">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
         <h3 class="text-white font-semibold text-xl mb-2">Katsastusapu</h3>
@@ -120,7 +120,7 @@ import Footer from '../components/Footer.astro';
 
       <!-- Small: Ilmastointi -->
       <div class="bento-card bento-small reveal-scale reveal-delay-2">
-        <div class="text-amber-400/70 mb-4">
+        <div class="text-blue-400/70 mb-4">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 3v4a1 1 0 001 1h4"/><path d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
         </div>
         <h3 class="text-white font-semibold text-xl mb-2">Ilmastointi</h3>
@@ -129,7 +129,7 @@ import Footer from '../components/Footer.astro';
 
       <!-- Small: Sähköjärjestelmät -->
       <div class="bento-card bento-small reveal-scale reveal-delay-3">
-        <div class="text-amber-400/70 mb-4">
+        <div class="text-blue-400/70 mb-4">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
         <h3 class="text-white font-semibold text-xl mb-2">Sähköjärjestelmät</h3>
@@ -166,35 +166,32 @@ import Footer from '../components/Footer.astro';
             />
           </div>
           <!-- Amber detail line -->
-          <div class="absolute top-8 -left-4 lg:-left-6 w-px h-40 bg-gradient-to-b from-amber-400 to-transparent"></div>
+          <div class="absolute top-8 -left-4 lg:-left-6 w-px h-40 bg-gradient-to-b from-blue-400 to-transparent"></div>
         </div>
 
         <!-- Text -->
         <div class="lg:pl-8 reveal reveal-delay-1">
-          <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-6">Meidän tarina</p>
+          <p class="text-blue-400 text-xs tracking-[0.4em] uppercase font-light mb-6">Meidän tarina</p>
           <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
-            Kolme sukupolvea.<br/>
-            <span class="text-zinc-500 font-light">Yksi lupaus.</span>
+            Yksi ammattilainen.<br/>
+            <span class="text-zinc-500 font-light">Koko sydämellä.</span>
           </h2>
           <div class="space-y-5 text-zinc-300 text-lg font-light leading-relaxed">
             <p>
-              Mäkinen Autokorjaamo perustettiin vuonna 1987, kun Paavo Mäkinen avasi tallin Kallion kaduilla. Alusta alkaen periaate on ollut sama: rehellinen työ, reilu hinta.
+              Niko Poikkeus perusti Rentoasennus Tmi:n vuonna 2025 Akaaseen. Idea oli yksinkertainen: ammattimainen autokorjaus ilman turhia kuluja ja epäselviä hintoja.
             </p>
             <p>
-              Tänään liike pyörii Paavon pojan Jukan ja tyttärentytär Lauran johdolla. Mekaanikkojemme yhteinen kokemus ylittää 80 vuotta — ja jokainen auto saa saman huomion, olipa kyse vuoden 1992 Volvo 240:stä tai tämän vuoden sähköautosta.
-            </p>
-            <p>
-              Me emme myy tarpeettomia osia. Emme ylidiagnosoi. Kerromme suoraan, mikä on vialla ja mitä se maksaa — ennen kuin ruuvi kääntyy.
+              Yksin tehdessä jokainen auto on henkilökohtainen projekti. Ei alihankkijoita, ei välikäsiä — Niko tekee työn alusta loppuun itse ja kertoo suoraan, mitä tarvitaan ja mitä se maksaa.
             </p>
           </div>
           <div class="mt-10 pt-10 border-t border-white/8 grid grid-cols-3 gap-6">
             {[
-              { number: "37+", label: "Vuotta alalla" },
-              { number: "4200+", label: "Tyytyväistä asiakasta" },
-              { number: "98%", label: "Suosittelee" },
+              { number: "60 €", label: "Tuntihinta" },
+              { number: "2025", label: "Perustettu" },
+              { number: "100%", label: "Läpinäkyvyys" },
             ].map((stat, i) => (
               <div class={`reveal reveal-delay-${i + 1}`}>
-                <div class="text-3xl font-bold text-amber-400 mb-1 tabular-nums">{stat.number}</div>
+                <div class="text-3xl font-bold text-blue-400 mb-1 tabular-nums">{stat.number}</div>
                 <div class="text-zinc-600 text-xs tracking-wide uppercase">{stat.label}</div>
               </div>
             ))}
@@ -209,7 +206,7 @@ import Footer from '../components/Footer.astro';
   <!-- ── GALLERY ────────────────────────────────────────────────────────────── -->
   <section class="py-28 lg:py-40">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-12 reveal">
-      <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Tilat &amp; kalusto</p>
+      <p class="text-blue-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Tilat &amp; kalusto</p>
       <h2 class="text-4xl md:text-5xl font-bold text-white">Korjaamomme</h2>
     </div>
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -228,9 +225,9 @@ import Footer from '../components/Footer.astro';
         </div>
         <!-- Right bottom: hero -->
         <div class="gallery-item gallery-stack-b reveal-scale reveal-delay-3">
-          <img src="/assets/generated/hero.png" alt="Nosturipaikat" />
+          <img src="/assets/generated/workshop.png" alt="Korjaamohalli" />
           <div class="gallery-overlay"></div>
-          <span class="gallery-label">Nosturipaikat</span>
+          <span class="gallery-label">Korjaamohalli</span>
         </div>
       </div>
     </div>
@@ -242,7 +239,7 @@ import Footer from '../components/Footer.astro';
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
 
       <div class="mb-16 lg:mb-20 reveal">
-        <p class="text-amber-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Ota yhteyttä</p>
+        <p class="text-blue-400 text-xs tracking-[0.4em] uppercase font-light mb-4">Ota yhteyttä</p>
         <div class="flex items-end gap-8">
           <h2 class="text-4xl md:text-6xl font-bold text-white leading-none">Yhteystiedot</h2>
           <div class="hidden md:block flex-1 h-px bg-white/10 mb-2"></div>
@@ -252,33 +249,33 @@ import Footer from '../components/Footer.astro';
       <div class="contact-bento mb-16">
 
         <div class="contact-card reveal-scale">
-          <div class="text-amber-400 mb-5">
+          <div class="text-blue-400 mb-5">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <p class="text-zinc-500 text-sm tracking-widest uppercase mb-4">Osoite</p>
-          <p class="text-white text-xl font-semibold leading-tight">Hämeentie 88</p>
-          <p class="text-white text-xl font-semibold leading-tight">00550 Helsinki</p>
-          <p class="text-zinc-600 text-xs mt-3">Kallio, 10 min Hakaniemestä</p>
+          <p class="text-white text-xl font-semibold leading-tight">Hämeentie 92</p>
+          <p class="text-white text-xl font-semibold leading-tight">37800 Akaa</p>
+          <p class="text-zinc-600 text-xs mt-3">Akaa, Pirkanmaa</p>
         </div>
 
         <div class="contact-card reveal-scale reveal-delay-1">
-          <div class="text-amber-400 mb-5">
+          <div class="text-blue-400 mb-5">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
           </div>
           <p class="text-zinc-500 text-sm tracking-widest uppercase mb-4">Aukioloajat</p>
-          <p class="text-white text-xl font-semibold leading-tight">Ma–Pe: 8.00–17.30</p>
-          <p class="text-white text-xl font-semibold leading-tight">La: 9.00–14.00</p>
-          <p class="text-zinc-600 text-xs mt-3">Sunnuntai suljettu</p>
+          <p class="text-white text-xl font-semibold leading-tight">Ma–Pe: 8.00–17.00</p>
+          <p class="text-white text-xl font-semibold leading-tight">La sopimuksen mukaan</p>
+          <p class="text-zinc-600 text-xs mt-3">Soita tai lähetä viesti</p>
         </div>
 
         <div class="contact-card reveal-scale reveal-delay-2">
-          <div class="text-amber-400 mb-5">
+          <div class="text-blue-400 mb-5">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.17 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
           </div>
           <p class="text-zinc-500 text-sm tracking-widest uppercase mb-4">Yhteystiedot</p>
-          <p class="text-white text-xl font-semibold leading-tight">09 756 4400</p>
-          <p class="text-white text-xl font-semibold leading-tight">info@makinenauto.fi</p>
-          <p class="text-zinc-600 text-xs mt-3">Ajanvaraus myös verkossa</p>
+          <p class="text-white text-xl font-semibold leading-tight">045 314 1977</p>
+          <p class="text-white text-xl font-semibold leading-tight">Niko Poikkeus</p>
+          <p class="text-zinc-600 text-xs mt-3">Soita tai lähetä viesti</p>
         </div>
 
       </div>
@@ -286,7 +283,7 @@ import Footer from '../components/Footer.astro';
       <!-- CTA -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 justify-between border-t border-white/8 pt-12 reveal">
         <p class="text-zinc-400 font-light max-w-sm">Varaa aika soittamalla tai täyttämällä yhteydenottolomake — vastaamme saman päivän aikana.</p>
-        <a href="tel:0975764400" class="group inline-flex items-center gap-3 bg-amber-400 text-zinc-950 font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-amber-300 transition-all duration-[400ms] [transition-timing-function:var(--spring)] whitespace-nowrap">
+        <a href="tel:0453141977" class="group inline-flex items-center gap-3 bg-blue-400 text-zinc-950 font-semibold text-sm tracking-wider uppercase px-8 py-4 hover:bg-blue-300 transition-all duration-[400ms] [transition-timing-function:var(--spring)] whitespace-nowrap">
           Soita nyt
           <svg width="16" height="10" viewBox="0 0 16 10" fill="none" class="group-hover:translate-x-1 transition-transform duration-300 [transition-timing-function:var(--spring)]"><path d="M1 5H15M15 5L11 1M15 5L11 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -573,11 +570,11 @@ import Footer from '../components/Footer.astro';
     frames.push(img);
   }
 
-  window.addEventListener('scroll', () => {
-    const progress = Math.min(window.scrollY / heroSection.offsetHeight, 1);
-    const index = Math.min(Math.floor(progress * FRAME_COUNT), FRAME_COUNT - 1);
-    heroFrame.src = frames[index].src;
-  }, { passive: true });
+  // window.addEventListener('scroll', () => {
+  //   const progress = Math.min(window.scrollY / heroSection.offsetHeight, 1);
+  //   const index = Math.min(Math.floor(progress * FRAME_COUNT), FRAME_COUNT - 1);
+  //   heroFrame.src = frames[index].src;
+  // }, { passive: true });
 
   // Hero reveals fire immediately on load
   document.querySelectorAll('#hero .reveal, #hero .reveal-scale').forEach((el, i) => {
